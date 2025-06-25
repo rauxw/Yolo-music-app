@@ -46,14 +46,12 @@ app.use("/api/stats", statRoute);
 
 //Error Handler
 app.use((err, req, res, next) => {
-  return res
-    .status(500)
-    .json({
-      message:
-        process.env.NODE_ENV === "production"
-          ? "Internal server error"
-          : err.message,
-    });
+  return res.status(500).json({
+    message:
+      process.env.NODE_ENV === "production"
+        ? "Internal server error"
+        : err.message,
+  });
 });
 
 async function main() {
@@ -68,3 +66,5 @@ async function main() {
 }
 
 main();
+
+//Todo: socket.io implementation

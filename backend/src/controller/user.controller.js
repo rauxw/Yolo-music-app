@@ -6,7 +6,7 @@ export const getAllUsers = async (req, res) => {
     const users = await userModel.find({ clerkId: { $ne: currentUserId } });
     return res.status(201).json(users);
   } catch (error) {
-    console.log(`Error in getAllUsers: ${error}`);
+    console.log(`Error in user getAllUsers: ${error}`);
     next(error);
   }
 };
